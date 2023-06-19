@@ -1,14 +1,14 @@
 <template>
     <div class="show-room-container flex-none ">
-        <div class="show-room-wrapper max-w-xs mt-12 mr-auto ml-auto rounded-lg p-2	justify-start relative  ">
-         <div class="inline-block rounded-full bg-red-500 h-10 w-10  mb-4 ml-2 text-center ">
+        <div class="show-room-wrapper max-w-xs mt-12 mr-auto ml-auto rounded-lg p-2	justify-start relative  sm:w-72">
+          <div class="inline-block rounded-full bg-red-500 h-10 w-10  mb-4 ml-2 text-center ">
              <h1 class="p-2">M</h1>
-         </div>
-         <div class="inline-block  pl-2 w-30 h-12 relative top-2 ml-2">
+             </div>
+            <div class="inline-block  pl-2 w-30 h-12 relative top-2 ml-2">
 
              <a class="room-name-p font-extrabold" href="/message">Mgobhozi House Hold</a>
              <p class="room-message-p ">Mbaili: Phata ama noodles</p>
-         </div>
+            </div>
 
           <div class="h-4 w-4 bg-red-600 inline-block ml-10  ">
 

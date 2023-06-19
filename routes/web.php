@@ -38,6 +38,10 @@ Route::get('/message', function () {
     return Inertia::render('Message');
 })->middleware(['auth', 'verified'])->name('Message');
 
+Route::get('/room', function () {
+    return Inertia::render('Admin');
+})->middleware(['auth', 'verified'])->name('room');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
