@@ -32,9 +32,11 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-
+Route::get('/message', function () {
+    return Inertia::render('Message');
+})->middleware(['auth', 'verified'])->name('Message');
 
 
 Route::middleware('auth')->group(function () {

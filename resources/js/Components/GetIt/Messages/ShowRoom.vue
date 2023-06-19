@@ -1,6 +1,6 @@
 <template>
-    <div class="show-room-container flex-none h-[20rem]">
-        <div class="show-room-wrapper max-w-xs mt-12 mr-auto ml-auto rounded-lg p-2	justify-start relative ">
+    <div class="show-room-container flex-none ">
+        <div class="show-room-wrapper max-w-xs mt-12 mr-auto ml-auto rounded-lg p-2	justify-start relative  ">
          <div class="inline-block rounded-full bg-red-500 h-10 w-10  mb-4 ml-2 text-center ">
              <h1 class="p-2">M</h1>
          </div>
