@@ -3,14 +3,19 @@
         <!--          Group button and header-->
         <h5 class="   font-semibold flex">Rooms</h5>
 
-        <button class="bg-[#5A4FF3] p-2 rounded-md  flex">Create group</button>
+
+        <Link class="bg-[#5A4FF3] p-2 rounded-md  flex" :href="route('create-group')"> Create group </Link>
 
     </div>
 </template>
 
 <script>
+import { Link } from '@inertiajs/vue3';
 export default {
-    name: "CreateGroup"
+    name: "CreateGroup",
+    components: {
+        Link
+    }
 }
 </script>
 

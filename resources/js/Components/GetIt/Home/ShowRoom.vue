@@ -5,8 +5,9 @@
              <h1 class="p-2">M</h1>
          </div>
          <div class="inline-block  pl-2 w-30 h-12 relative top-2 ml-2">
+             <Link class="room-name-p font-extrabold" :href="route('create-group')"> Mgobhozi household </Link>
 
-             <a class="room-name-p font-extrabold" href="/message">Mgobhozi House Hold</a>
+
              <p class="room-message-p ">Mbaili: Phata ama noodles</p>
          </div>
 
@@ -22,8 +23,12 @@
 </template>
 
 <script>
+import { Link } from '@inertiajs/vue3';
 export default {
-    name: "ShowRoom"
+    name: "ShowRoom",
+    components: {
+        Link
+    }
 }
 </script>
 

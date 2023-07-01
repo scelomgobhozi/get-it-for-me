@@ -42,6 +42,22 @@ Route::get('/room', function () {
     return Inertia::render('Admin');
 })->middleware(['auth', 'verified'])->name('room');
 
+Route::get('/create-group', function () {
+    return Inertia::render('CreateGroup');
+})->middleware(['auth', 'verified'])->name('create-group');
+
+Route::get('/requests', function () {
+    return Inertia::render('GroupRequest');
+})->middleware(['auth', 'verified'])->name('request');
+
+Route::get('/likes', function () {
+    return Inertia::render('Likes');
+})->middleware(['auth', 'verified'])->name('likes');
+
+Route::get('/join-group', function () {
+    return Inertia::render('JoinGroup');
+})->middleware(['auth', 'verified'])->name('join-group');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
