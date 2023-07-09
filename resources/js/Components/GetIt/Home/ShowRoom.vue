@@ -23,7 +23,15 @@
 
 <script>
 export default {
-    name: "ShowRoom"
+
+    name: "ShowRoom",
+
+    props:{
+
+
+    }
+
+
 }
 </script>
 
