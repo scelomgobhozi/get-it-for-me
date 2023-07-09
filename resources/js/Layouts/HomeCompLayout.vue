@@ -10,7 +10,7 @@
              <create-group></create-group>
 
 
-                <ShowRoom> </ShowRoom>
+                <ShowRoom > </ShowRoom>
             </div>
 
             <!--          The Chat Area    -->
@@ -35,6 +35,9 @@ export default {
         ShowRoom,
         ShowMessage,
         CreateGroup
+    },
+    props:{
+
     }
 }
 </script>

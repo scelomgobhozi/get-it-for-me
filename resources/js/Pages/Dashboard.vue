@@ -9,7 +9,7 @@ import { Head } from '@inertiajs/vue3';
 
     <AuthenticatedLayout>
 
-        <home-comp-layout></home-comp-layout>
+        <home-comp-layout ></home-comp-layout>
 
     </AuthenticatedLayout>
 
