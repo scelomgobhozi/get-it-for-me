@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\PreferenceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,12 @@ Route::get('/', function () {
 
 Route::get('/dashboard',[dashboardController::class, 'index'])
  ->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::controller(PreferenceController::class)->group(function(){
+    Route::get('/likes','index');
+})->middleware(['auth','verified']);
+
+
 
 Route::get('/message', function () {
     return Inertia::render('Message');

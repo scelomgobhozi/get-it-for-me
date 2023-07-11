@@ -10,7 +10,7 @@
              <create-group></create-group>
 
 
-                <ShowRoom > </ShowRoom>
+                <ShowRoom :compact="compact" > </ShowRoom>
             </div>
 
             <!--          The Chat Area    -->
@@ -37,7 +37,7 @@ export default {
         CreateGroup
     },
     props:{
-
+    compact:Object
     }
 }
 </script>

@@ -1,7 +1,20 @@
-<script setup>
+<script >
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import HomeCompLayout from "@/Layouts/HomeCompLayout.vue";
 import { Head } from '@inertiajs/vue3';
+
+export default {
+    name: "Dashboard",
+    components: {
+        Head,
+        AuthenticatedLayout,
+        HomeCompLayout
+    },
+    props: {
+        compact:Object
+    }
+}
+
 </script>
 
 <template>
@@ -9,7 +22,7 @@ import { Head } from '@inertiajs/vue3';
 
     <AuthenticatedLayout>
 
-        <home-comp-layout ></home-comp-layout>
+        <home-comp-layout :compact="compact" ></home-comp-layout>
 
     </AuthenticatedLayout>
 
