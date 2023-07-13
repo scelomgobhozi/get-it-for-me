@@ -1,9 +1,13 @@
 <?php
 
 use App\Http\Controllers\dashboardController;
+use App\Http\Controllers\PreferenceController;
+
 use App\Http\Controllers\ProfileController;
+
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+
 use Inertia\Inertia;
 
 /*
@@ -26,13 +30,22 @@ Route::get('/', function () {
     ]);
 });
 
-//Route::get('/dashboard', function () {
-//    return Inertia::render('Dashboard');
-//})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::get('/dashboard',[dashboardController::class, 'index'])
     ->middleware(['auth', 'verified'])->name('dashboard');
+
+//Route::controller(PreferenceController::class)->group(function () {
+//    Route::get('/preferences', 'index')->name('preferences');
+//    Route::post('/preferences/store', 'store')->name('preference.store');
+//    Route::get('/preferences/{id}','')->name('preference.destroy');
+//})->middleware(['auth', 'verified']);
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/preferences', [PreferenceController::class, 'index'])->name('preferences');
+    Route::post('/preferences/store', [PreferenceController::class, 'store'])->name('preferences.store');
+    Route::get('/preferences/{id}', [PreferenceController::class, 'destroy'])->name('preferences.destroy');
+});
 
 Route::get('/message', function () {
     return Inertia::render('Message');
@@ -41,6 +54,10 @@ Route::get('/message', function () {
 Route::get('/room', function () {
     return Inertia::render('Admin');
 })->middleware(['auth', 'verified'])->name('room');
+
+Route::get('/create-group', function () {
+    return Inertia::render('CreateGroup');
+})->middleware(['auth', 'verified'])->name('create-group');
 
 
 Route::middleware('auth')->group(function () {

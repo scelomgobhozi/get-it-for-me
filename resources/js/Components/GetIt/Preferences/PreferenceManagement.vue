@@ -5,7 +5,7 @@
             <div v-if="preferences" class= "pt-6">
                 <div v-for="likes in preferences" :key="likes.id" class="flex justify-between">
                     <p>{{likes.preference}}</p>
-                    <p> <Link :href="route('preference.destroy', likes.id)">🗑️ </Link> </p>
+                    <p> <Link :href="route('preferences.destroy', likes.id)">🗑️ </Link> </p>
                 </div>
 
             </div>
