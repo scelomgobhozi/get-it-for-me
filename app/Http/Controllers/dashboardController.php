@@ -8,7 +8,7 @@ use Inertia\Inertia;
 
 class dashboardController extends Controller
 {
-    public function index()
+    public function index(): \Inertia\Response
     {
         return Inertia::render('Dashboard',[
             'compact' => Rooms::all()
