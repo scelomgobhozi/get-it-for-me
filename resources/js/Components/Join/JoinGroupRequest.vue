@@ -24,7 +24,8 @@ export default {
         Link
     },
     props:{
-        groupDetails:Object
+        groupDetails:Object,
+
     },
     setup(){
         let userId = usePage().props.auth.user.id;
@@ -35,16 +36,16 @@ export default {
         }
     },
     methods:{
-        joinGroup: function(roomId){
+        joinGroup(roomId){
           let uid = this.userId.toString();
-           console.log(roomId);
+          let rid = roomId.toString();
+          //  console.log(typeof(uid),typeof(rid));
+
            router.post('/join-room/store',{
                user_id: uid,
-               room_id: roomId
-           },{ onSuccess: (page) => {
+               room_id:roomId
+           });
 
-                    this.sendDisabled = true;
-               }});
 
         },
 

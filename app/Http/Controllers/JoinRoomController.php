@@ -38,9 +38,7 @@ class JoinRoomController extends Controller
            'from_id' => $request->user_id
        ]);
 
-        return redirect()->route('join-room.store')->with([
-            'RequestStatus'=> 'request sent successfully'
-        ]);
+        return redirect()->route('preferences');
 
     }
 
