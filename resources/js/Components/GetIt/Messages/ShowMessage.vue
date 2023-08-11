@@ -12,85 +12,18 @@
 
 
                 <div class="chat-area-container  bg-red-500 pl-2 pr-2 h-[32rem] pt-1 pb-1 overflow-y-scroll">
-                    <div class="chat-area-wrapper bg-red-200 p-2 mt-6 mb-6 rounded-lg">
+                    <div v-for="message in messages"  :key="message.id" class="chat-area-wrapper bg-red-200 p-2 mt-6 mb-6 rounded-lg">
                         <div class="message-header">
-                            <a class=" underline font-bold" href="">Sicelo</a>
+                            <a class=" underline font-bold" href="">{{message.from_id}}</a>
                             <span class="ml-3 text-xs">14:04</span>
                         </div>
                         <div class="justify-between flex">
 
                             <div class="actual-message flex">
-                                <p>Noodle pack durban curry</p>
+                                <p>{{message.message}}</p>
                             </div>
                             <div class="checkbox-confirm flex">
                                 <input class="block" type="checkbox" name="bought" id="" >
-                           </div>
-
-                        </div>
-                        <div class="message-date text-center pt-4">
-                            <span class="font-black ">09 June 2023</span>
-                        </div>
-
-                    </div>
-<!--                             Message-->
-
-                    <div class="chat-area-wrapper bg-yellow-200 p-2 mt-6 mb-6 rounded-lg">
-                        <div class="message-header">
-                            <a class=" underline font-bold" href="">Sicelo</a>
-                            <span class="ml-3 text-xs">14:04</span>
-                        </div>
-                        <div class="justify-between flex">
-
-                            <div class="actual-message flex">
-                                <p>Noodle pack durban curry</p>
-                            </div>
-                            <div class="checkbox-confirm flex">
-                                <input class="block" type="checkbox" name="bought" id="" >
-                            </div>
-
-                        </div>
-                        <div class="message-date text-center pt-4">
-                            <span class="font-black ">09 June 2023</span>
-                        </div>
-
-                    </div>
-
-<!--                    Message 2-->
-                    <div class="chat-area-wrapper bg-green-200 p-2 mt-6 mb-6 rounded-lg">
-                        <div class="message-header">
-                            <a class=" underline font-bold" href="">Sicelo</a>
-                            <span class="ml-3 text-xs">14:04</span>
-                        </div>
-                        <div class="justify-between flex">
-
-                            <div class="actual-message flex">
-                                <p>Noodle pack durban curry</p>
-                            </div>
-                            <div class="checkbox-confirm flex">
-                                <input class="block" type="checkbox" name="bought" id="" >
-                            </div>
-
-                        </div>
-                        <div class="message-date text-center pt-4">
-                            <span class="font-black ">09 June 2023</span>
-                        </div>
-
-                    </div>
-
-
-                    <!--                    Message 2-->
-                    <div class="chat-area-wrapper bg-green-200 p-2 mt-6 mb-6 rounded-lg">
-                        <div class="message-header">
-                            <a class=" underline font-bold" href="">Sicelo</a>
-                            <span class="ml-3 text-xs">14:04</span>
-                        </div>
-                        <div class="justify-between flex">
-
-                            <div class="actual-message flex">
-                                <p>Noodle pack durban curry</p>
-                            </div>
-                            <div class="checkbox-confirm flex">
-                                <input class="block" type="checkbox" name="bought" id="got" >
                             </div>
 
                         </div>
@@ -137,7 +70,10 @@
 
 <script>
 export default {
-    name: "ShowMessage"
+    name: "ShowMessage",
+    props:{
+        messages:Object
+    }
 }
 </script>
 

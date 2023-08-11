@@ -39,6 +39,11 @@ class HandleInertiaRequests extends Middleware
                     'location' => $request->url(),
                 ]);
             },
+
+            'groupLink'=>[
+                'groupUrl'=>fn() => $request->session()->get('groupUrl'),
+            ]
+
         ]);
     }
 }

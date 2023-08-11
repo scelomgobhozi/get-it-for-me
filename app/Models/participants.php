@@ -9,6 +9,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class participants extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'room_id',
+        'user_id',
+        'admin',
+    ];
+
     public function User() :BelongsTo
     {
         return $this->belongsTo('App\User');

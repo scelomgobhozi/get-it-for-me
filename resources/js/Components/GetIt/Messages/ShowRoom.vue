@@ -9,7 +9,7 @@
                 <Link class="room-name-p font-extrabold" :href="route('create-group')"> Mgobhozi household </Link>
 
 
-             <p class="room-message-p ">Mbaili: Phata ama noodles</p>
+             <p class="room-message-p invisible">Mbaili: Phata ama noodles</p>
             </div>
 
           <div class="h-4 w-4 bg-red-600 inline-block ml-10  ">

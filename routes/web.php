@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\dashboardController;
+
+use App\Http\Controllers\JoinRoomController;
+use App\Http\Controllers\MessagesController;
 use App\Http\Controllers\PreferenceController;
-
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\RequestsController;
+use App\Http\Controllers\RoomController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +49,59 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('/preferences/store', [PreferenceController::class, 'store'])->name('preferences.store');
     Route::get('/preferences/{id}', [PreferenceController::class, 'destroy'])->name('preferences.destroy');
 });
+
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/group-request', [RequestsController::class, 'index'])->name('request.show');
+
+});
+
+
+Route::middleware(['auth', 'verified'])->group(function () {
+;
+    Route::get('/join-room/{key}', [JoinRoomController::class, 'show'])->name('join-room.show');
+    Route::post('/join-room/store', [JoinRoomController::class, 'store'])->name('join-room.store');
+  ;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/create-room', [RoomController::class, 'index'])->name('create-room');
+    Route::post('/create-room/store', [RoomController::class, 'store'])->name('create-room.store');
+    Route::get('/create-room/{id}', [RoomController::class, 'destroy'])->name('create-room.destroy');
+});
+
+//Route::middleware(['auth','verified'])->group(function(){
+//    Route::get('messages/{id}',[messagesController::class, 'show'])->name('messages.show');
+//});
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/messages/{id}', [MessagesController::class, 'show'])->name('messages.view');
+    Route::get('/create-message', [MessagesController::class, 'index'])->name('messages.create');
+    Route::post('/create-message/store', [MessagesController::class, 'store'])->name('messages.store');
+
+});
+
+
 
 Route::get('/message', function () {
     return Inertia::render('Message');

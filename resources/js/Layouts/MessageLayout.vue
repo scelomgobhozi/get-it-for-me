@@ -13,7 +13,7 @@
 
             <!--          The Chat Area    -->
             <div class="no-flex lg:flex  w-full sm:w-full md:w-2/5 bg-black-300  overscroll-contain ">
-                <ShowMessage></ShowMessage>
+                <ShowMessage :messages="messages" ></ShowMessage>
             </div>
 
 
@@ -35,6 +35,9 @@ export default {
         ShowMessage,
         CreateGroup
     },
+    props:{
+        messages:Object
+    }
 }
 </script>
 

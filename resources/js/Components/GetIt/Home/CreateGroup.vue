@@ -4,7 +4,7 @@
         <h5 class="   font-semibold flex">Rooms</h5>
 
 
-        <Link class="bg-[#5A4FF3] p-2 rounded-md  flex" :href="route('create-group')"> Create group </Link>
+        <Link class="bg-[#5A4FF3] p-2 rounded-md  flex" :href="route('create-room')"> Create group </Link>
 
     </div>
 </template>

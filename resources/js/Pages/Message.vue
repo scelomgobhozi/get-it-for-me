@@ -3,7 +3,7 @@
     <AuthenticatedLayout>
 
 
-        <MessageLayout></MessageLayout>
+        <MessageLayout :messages="messages"></MessageLayout>
 
     </AuthenticatedLayout>
 
@@ -15,6 +15,12 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import MessageLayout from "@/Layouts/MessageLayout.vue";
 import { Head } from '@inertiajs/vue3';
 
+defineProps({
+    messages:{
+        type:Object
+    },
+
+});
 
 </script>
 

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('Admin_id');
             $table->text('room_name');
+            $table->text('short_room_name');
             $table->longText('room_url');
             $table->timestamps();
             $table->foreign('Admin_id')->references('id')->on('users');

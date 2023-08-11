@@ -12,7 +12,7 @@ const showingNavigationDropdown = ref(false);
 
 <template>
     <div>
-        <div class="min-h-screen bg-gray-100">
+        <div class="">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -50,8 +50,12 @@ const showingNavigationDropdown = ref(false);
                                 Home
                             </NavLink>
 
-<!--                            <NavLink :href="route('request')" :active="route().current('request')">-->
-<!--                                Requests-->
+                            <NavLink :href="route('request.show')" :active="route().current('request.show')">
+                                Requests
+                            </NavLink>
+
+<!--                            <NavLink :href="route('request.show')" :active="route().current('request.show')">-->
+<!--                                Invite users-->
 <!--                            </NavLink>-->
                         </div>
 

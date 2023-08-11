@@ -1,15 +1,15 @@
 <template>
-    <div class="create-group-wrapper mt-6 pt-2">
+    <div v-for="groupInfo in groupDetails " :key="groupInfo.id" class="create-group-wrapper mt-6 pt-2">
         <div class="show-room-wrapper max-w-xs mt-12 mr-auto ml-auto rounded-lg p-5	justify-between relative bg-white text-center ">
             <div class="inline-block rounded-full bg-red-500 h-10 w-10  mb-4 ml-2 text-center ">
                 <h1 class="p-2">M</h1>
             </div>
             <div class="inline-block      ml-2">
-                <Link class="room-name-p font-extrabold" :href="route('create-group')"> Mgobhozi household </Link>
+                <Link class="room-name-p font-extrabold" :href="route('create-group')"> {{groupInfo.room_name}}  </Link>
 
             </div>
 
-             <button class="bg-blue-500 p-2 rounded-md  flex mx-auto text-white"> Send joining request</button>
+             <button :disabled="sendDisabled" @click="joinGroup(groupInfo.id)" class="bg-blue-500 p-2 rounded-md  flex mx-auto text-white"> Send joining request</button>
 
         </div>
 
@@ -17,11 +17,37 @@
 </template>
 
 <script>
-import { Link } from '@inertiajs/vue3';
+import {Link, router, usePage} from '@inertiajs/vue3';
 export default {
     name: "JoinGroupRequest",
     components: {
         Link
+    },
+    props:{
+        groupDetails:Object
+    },
+    setup(){
+        let userId = usePage().props.auth.user.id;
+        let sendDisabled = false;
+        return{
+            userId,
+            sendDisabled
+        }
+    },
+    methods:{
+        joinGroup: function(roomId){
+          let uid = this.userId.toString();
+           console.log(roomId);
+           router.post('/join-room/store',{
+               user_id: uid,
+               room_id: roomId
+           },{ onSuccess: (page) => {
+
+                    this.sendDisabled = true;
+               }});
+
+        },
+
     }
 }
 </script>

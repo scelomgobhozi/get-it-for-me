@@ -9,7 +9,10 @@
                 </div>
 
             </div>
-            <form @submit.prevent="form.post(route('preferences.store'))" >
+            <form @submit.prevent="form.post(route('preferences.store'),{
+            preserveScroll: true,
+            onSuccess: () => form.reset()
+        })" >
 
             <input  class="rounded-md w-full mt-4"
                    type="text"

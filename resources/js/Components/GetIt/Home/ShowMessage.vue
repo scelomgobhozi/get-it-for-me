@@ -2,7 +2,7 @@
 
         <div class="message-text-container   ">
             <div class="message-text-wrapper  h-[45rem]">
-                <div class="chat-header bg-[#5A4FF3] text-center w-full sm:w-96 p-2 relative rounded-t-xl">
+                <div class="chat-header bg-[#5A4FF3] text-center   sm:w-full p-2 relative rounded-t-xl">
 
                     <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class=" relative right-20 inline-block bi bi-arrow-left-short" viewBox="0 0 16 16">
                         <path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
@@ -12,15 +12,18 @@
 
 
                 <div class="chat-area-container  bg-red-500 pl-2 pr-2 h-[32rem] pt-1 pb-1 overflow-x-auto">
-                    <div class="chat-area-wrapper bg-red-200 p-2 mt-6 mb-6 rounded-lg">
+                    <div v-if="messages">
+                        <h1>HELLO</h1>
+                    </div>
+                    <div v-for="message in messages"  :key="message.id" class="chat-area-wrapper bg-red-200 p-2 mt-6 mb-6 rounded-lg">
                         <div class="message-header">
-                            <a class=" underline font-bold" href="">Sicelo</a>
+                            <a class=" underline font-bold" href="">{{message.from_id}}</a>
                             <span class="ml-3 text-xs">14:04</span>
                         </div>
                         <div class="justify-between flex">
 
                             <div class="actual-message flex">
-                                <p>Noodle pack durban curry</p>
+                                <p>{{message.message}}</p>
                             </div>
                             <div class="checkbox-confirm flex">
                                 <input class="block" type="checkbox" name="bought" id="" >
@@ -34,71 +37,71 @@
                     </div>
 <!--                             Message-->
 
-                    <div class="chat-area-wrapper bg-yellow-200 p-2 mt-6 mb-6 rounded-lg">
-                        <div class="message-header">
-                            <a class=" underline font-bold" href="">Sicelo</a>
-                            <span class="ml-3 text-xs">14:04</span>
-                        </div>
-                        <div class="justify-between flex">
+<!--                    <div class="chat-area-wrapper bg-yellow-200 p-2 mt-6 mb-6 rounded-lg">-->
+<!--                        <div class="message-header">-->
+<!--                            <a class=" underline font-bold" href="">Sicelo</a>-->
+<!--                            <span class="ml-3 text-xs">14:04</span>-->
+<!--                        </div>-->
+<!--                        <div class="justify-between flex">-->
 
-                            <div class="actual-message flex">
-                                <p>Noodle pack durban curry</p>
-                            </div>
-                            <div class="checkbox-confirm flex">
-                                <input class="block" type="checkbox" name="bought" id="" >
-                            </div>
+<!--                            <div class="actual-message flex">-->
+<!--                                <p>Noodle pack durban curry</p>-->
+<!--                            </div>-->
+<!--                            <div class="checkbox-confirm flex">-->
+<!--                                <input class="block" type="checkbox" name="bought" id="" >-->
+<!--                            </div>-->
 
-                        </div>
-                        <div class="message-date text-center pt-4">
-                            <span class="font-black ">09 June 2023</span>
-                        </div>
+<!--                        </div>-->
+<!--                        <div class="message-date text-center pt-4">-->
+<!--                            <span class="font-black ">09 June 2023</span>-->
+<!--                        </div>-->
 
-                    </div>
+<!--                    </div>-->
 
-<!--                    Message 2-->
-                    <div class="chat-area-wrapper bg-green-200 p-2 mt-6 mb-6 rounded-lg">
-                        <div class="message-header">
-                            <a class=" underline font-bold" href="">Sicelo</a>
-                            <span class="ml-3 text-xs">14:04</span>
-                        </div>
-                        <div class="justify-between flex">
+<!--&lt;!&ndash;                    Message 2&ndash;&gt;-->
+<!--                    <div class="chat-area-wrapper bg-green-200 p-2 mt-6 mb-6 rounded-lg">-->
+<!--                        <div class="message-header">-->
+<!--                            <a class=" underline font-bold" href="">Sicelo</a>-->
+<!--                            <span class="ml-3 text-xs">14:04</span>-->
+<!--                        </div>-->
+<!--                        <div class="justify-between flex">-->
 
-                            <div class="actual-message flex">
-                                <p>Noodle pack durban curry</p>
-                            </div>
-                            <div class="checkbox-confirm flex">
-                                <input class="block" type="checkbox" name="bought" id="" >
-                            </div>
+<!--                            <div class="actual-message flex">-->
+<!--                                <p>Noodle pack durban curry</p>-->
+<!--                            </div>-->
+<!--                            <div class="checkbox-confirm flex">-->
+<!--                                <input class="block" type="checkbox" name="bought" id="" >-->
+<!--                            </div>-->
 
-                        </div>
-                        <div class="message-date text-center pt-4">
-                            <span class="font-black ">09 June 2023</span>
-                        </div>
+<!--                        </div>-->
+<!--                        <div class="message-date text-center pt-4">-->
+<!--                            <span class="font-black ">09 June 2023</span>-->
+<!--                        </div>-->
 
-                    </div>
+<!--                    </div>-->
 
 
                     <!--                    Message 2-->
-                    <div class="chat-area-wrapper bg-green-200 p-2 mt-6 mb-6 rounded-lg">
-                        <div class="message-header">
-                            <a class=" underline font-bold" href="">Sicelo</a>
-                            <span class="ml-3 text-xs">14:04</span>
-                        </div>
-                        <div class="justify-between flex">
+<!--                    <div class="chat-area-wrapper bg-green-200 p-2 mt-6 mb-6 rounded-lg">-->
+<!--                        <div class="message-header">-->
+<!--                            <a class=" underline font-bold" href="">Sicelo</a>-->
+<!--                            <span class="ml-3 text-xs">14:04</span>-->
+<!--                        </div>-->
+<!--                        <div class="justify-between flex">-->
 
-                            <div class="actual-message flex">
-                                <p>Noodle pack durban curry</p>
-                            </div>
-                            <div class="checkbox-confirm flex">
-                                <input class="block" type="checkbox" name="bought" id="got" >
-                            </div>
+<!--                            <div class="actual-message flex">-->
+<!--                                <p>Noodle pack durban curry</p>-->
+<!--                            </div>-->
+<!--                            <div class="checkbox-confirm flex">-->
+<!--                                <input class="block" type="checkbox" name="bought" id="got" >-->
+<!--                            </div>-->
 
-                        </div>
-                        <div class="message-date text-center pt-4">
-                            <span class="font-black ">09 June 2023</span>
-                        </div>
+<!--                        </div>-->
+<!--                        <div class="message-date text-center pt-4">-->
+<!--                            <span class="font-black ">09 June 2023</span>-->
+<!--                        </div>-->
 
-                    </div>
+<!--                    </div>-->
                 </div>
 
 
@@ -137,7 +140,10 @@
 
 <script>
 export default {
-    name: "ShowMessage"
+    name: "ShowMessage",
+    props:{
+        messages:Object
+    }
 }
 </script>
 
