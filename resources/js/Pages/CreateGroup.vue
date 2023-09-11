@@ -2,6 +2,13 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import CreateGroupLayout from "@/Layouts/CreateGroupLayout.vue";
 import { Head } from '@inertiajs/vue3';
+
+defineProps({
+    groupLink:{
+        type:Object
+    },
+
+});
 </script>
 
 <template>
@@ -9,7 +16,7 @@ import { Head } from '@inertiajs/vue3';
 
     <AuthenticatedLayout>
 
-        <create-group-layout></create-group-layout>
+        <create-group-layout :groupLink="groupLink"></create-group-layout>
 
     </AuthenticatedLayout>
 

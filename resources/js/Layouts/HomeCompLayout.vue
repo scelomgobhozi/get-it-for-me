@@ -1,12 +1,15 @@
 <template>
 
     <div class="max-w-7xl home-container m-auto mt-5">
-        <div class="home-wrapper  flex-none md:flex justify-between ">
+        <div class="home-wrapper   ">
 
 
             <!--            Show all groups     -->
 
-            <div class="shadow-black	 show-all-cont  md:w-2/5  p-5 rounded-lg">
+            <div class="shadow-black m-auto	 show-all-cont  md:w-2/5  p-5 rounded-lg">
+                <div v-if="$page.props.flash.message" class="alert">
+                    {{$page.props.flash.message}}
+                </div>
              <create-group></create-group>
 
 
@@ -14,9 +17,7 @@
             </div>
 
             <!--          The Chat Area    -->
-            <div class=" hidden md:flex md:w-2/5 bg-black-100 h-[20rem] ">
-                <ShowMessage></ShowMessage>
-            </div>
+
 
 
         </div>

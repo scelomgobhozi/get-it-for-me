@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('short_room_name');
             $table->longText('room_url');
             $table->timestamps();
-            $table->foreign('Admin_id')->references('id')->on('users');
+            $table->foreign('Admin_id')->references('id')->on('users')->cascadeOnDelete();
         });
     }
 

@@ -68,7 +68,8 @@ class RoomController extends Controller
 
             ]);
             return redirect()->route('create-room')->with([
-                'groupUrl'=> $offUrl
+                'groupUrl'=> $offUrl,
+                'message'=> 'Group created successfully'
             ]);
 
         }

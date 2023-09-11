@@ -11,17 +11,19 @@
                 <a class="text-start inline-block underline text-white	font-semibold" href="#">Group Request</a>
             </div>
 
+          <div v-if="room_request">
+              <div v-for="roomRequest in room_request" :key="roomRequest.id">
 
-            <div class="request-area-container   pl-2 pr-2 h-[32rem] pt-1 pb-1 overflow-y-auto">
-                <div class="request-area bg-gray-400 mt-6 p-3 rounded-lg">
-                <p> Group: Mgobhozi House hold</p>
-                <p>Name: Nomataliyana</p>
-                <p>Email: nomataliyana@gmail.com</p>
-                <p>Phone Number</p>
-                <button class="bg-[#5A4FF3] p-2 rounded-md  flex">Approve</button>
-            </div>
-
-
+                   <div class="request-area-container   pl-2 pr-2 h-[32rem] pt-1 pb-1 overflow-y-auto">
+                     <div class="request-area bg-gray-400 mt-6 p-3 rounded-lg">
+                      <p> Group: {{roomRequest.room_name}}</p>
+                      <p>Name: {{roomRequest.name}}</p>
+                      <p>Email: {{roomRequest.email}}m</p>
+                       <p>Phone {{roomRequest.phone}}r</p>
+                    <button class="bg-[#5A4FF3] p-2 rounded-md  flex" @click="approveMember(roomRequest.admin_id, roomRequest.from_id, roomRequest.room_id)" >Approve</button>
+                      </div>
+                   </div>
+              </div>
             </div>
 
 
@@ -30,8 +32,26 @@
 </template>
 
 <script>
+import {router} from "@inertiajs/vue3";
+
 export default {
-    name: "RoomRequest"
+    name: "RoomRequest",
+    props:{
+        room_request:Object
+    },
+    methods:{
+        approveMember(adminID,fromID, roomID ){
+            router.post('/group-request/store',{
+                from_id: fromID,
+                room_id:roomID,
+                admin_id:adminID
+            },{
+                onSuccess: (page) => {console.log(page)},
+            });
+
+
+        }
+    }
 }
 </script>
 

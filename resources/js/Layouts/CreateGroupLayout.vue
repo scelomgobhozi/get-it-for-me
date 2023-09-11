@@ -1,7 +1,7 @@
 <template>
-    
 
- <new-group></new-group>
+
+ <new-group :groupLink="groupLink"></new-group>
 
 
 </template>
@@ -12,6 +12,9 @@ export default {
     name: "CreateGroupLayout",
     components: {
         NewGroup
+    },
+    props:{
+        groupLink:Object
     }
 }
 </script>

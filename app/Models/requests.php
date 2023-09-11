@@ -12,6 +12,7 @@ class requests extends Model
     protected $fillable = [
         'room_id',
         'from_id',
+        'admin_id'
 
     ];
     public  function User()  :BelongsTo

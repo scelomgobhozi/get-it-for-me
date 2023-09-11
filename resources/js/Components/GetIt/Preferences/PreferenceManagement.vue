@@ -1,4 +1,7 @@
 <template>
+    <div v-if="$page.props.flash.message && showNotification" class="alert">
+        <Notification :message="$page.props.flash.message"/>
+    </div>
     <div class="create-group-wrapper mt-6">
         <div class="create-group-container  w-full sm:w-96 h-80 mx-auto p-4 rounded-lg">
             <p class="text-center bold font-black text-sm" >WHAT DO YOU WANT SOMEONE TO GET YOU ?</p>
@@ -32,10 +35,12 @@
 
   import {useForm , Link} from "@inertiajs/vue3";
   import { usePage } from '@inertiajs/vue3'
+  import Notification from "@/Components/Notification.vue";
 
 
   export default {
       components: {
+          Notification,
           Link
       },
       data() {
@@ -55,16 +60,18 @@
               like: ''
           })
 
-          return {form};
+
+          return {
+              form,
+
+
+          };
 
 
 
       },
 
-      mounted (){
 
-
-      }
       // created: {
       //     start() {
       //         let page = usePage();

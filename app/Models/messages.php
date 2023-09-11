@@ -9,6 +9,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class messages extends Model
 {
     use HasFactory;
+
+     protected $fillable = [
+         'from_id',
+         'message',
+         'room_id',
+         'priority'
+     ];
     public function User() :BelongsTo
     {
         return $this->belongsTo('App\User');

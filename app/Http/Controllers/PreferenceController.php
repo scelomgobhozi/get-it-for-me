@@ -43,7 +43,7 @@ class PreferenceController extends Controller
             'preference' =>$request->like
 
         ]);
-        return redirect()->route('preferences');
+        return redirect()->route('preferences')->with('message', 'success');
     }
 
     /**

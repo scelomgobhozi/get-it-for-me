@@ -9,7 +9,7 @@
 
             </div>
 
-             <button :disabled="sendDisabled" @click="joinGroup(groupInfo.id)" class="bg-blue-500 p-2 rounded-md  flex mx-auto text-white"> Send joining request</button>
+             <button :disabled="sendDisabled" @click="joinGroup(groupInfo.id,groupInfo.Admin_id)" class="bg-blue-500 p-2 rounded-md  flex mx-auto text-white"> Send joining request</button>
 
         </div>
 
@@ -36,14 +36,17 @@ export default {
         }
     },
     methods:{
-        joinGroup(roomId){
+        joinGroup(roomId,adminId){
           let uid = this.userId.toString();
-          let rid = roomId.toString();
-          //  console.log(typeof(uid),typeof(rid));
+
+
 
            router.post('/join-room/store',{
                user_id: uid,
-               room_id:roomId
+               room_id:roomId,
+               admin_id:adminId
+           },{
+               onSuccess: (page) => {console.log(page)},
            });
 
 

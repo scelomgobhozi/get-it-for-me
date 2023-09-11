@@ -53,6 +53,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/group-request', [RequestsController::class, 'index'])->name('request.show');
+    Route::post('/group-request/store', [RequestsController::class, 'store'])->name('request.store');
 
 });
 
@@ -96,8 +97,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/messages/{id}', [MessagesController::class, 'show'])->name('messages.view');
+    Route::put('/messages/destroy', [MessagesController::class, 'destroy'])->name('messages.destroy');
     Route::get('/create-message', [MessagesController::class, 'index'])->name('messages.create');
-    Route::post('/create-message/store', [MessagesController::class, 'store'])->name('messages.store');
+    Route::post('/messages/store', [MessagesController::class, 'store'])->name('messages.store');
 
 });
 

@@ -42,6 +42,9 @@ class HandleInertiaRequests extends Middleware
 
             'groupLink'=>[
                 'groupUrl'=>fn() => $request->session()->get('groupUrl'),
+            ],
+            'flash' =>[
+                'message' => session('message')
             ]
 
         ]);

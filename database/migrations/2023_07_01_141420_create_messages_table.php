@@ -18,8 +18,8 @@ return new class extends Migration
             $table->longText('message');
             $table->text('priority');
             $table->timestamps();
-            $table->foreign('room_id')->references('id')->on('rooms');
-            $table->foreign('from_id')->references('id')->on('users');
+            $table->foreign('room_id')->references('id')->on('rooms')->cascadeOnDelete();
+            $table->foreign('from_id')->references('id')->on('users')->cascadeOnDelete();
         });
     }
 

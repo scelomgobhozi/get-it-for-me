@@ -23,7 +23,7 @@ class MessagesController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -31,7 +31,23 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $message = $request->message;
+       $room_id = $request->room_id;
+       $priority = $request->priority;
+
+        $request->validate([
+            "message"=>'required',
+            "priority"=>'required',
+
+
+        ]);
+        messages::create([
+            'room_id'=>$room_id,
+            'from_id'=> auth()->id(),
+            'message'=>$message,
+            'priority'=>$priority
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -45,10 +61,15 @@ class MessagesController extends Controller
             ->join('users','messages.from_id','=','users.id')
             ->select('users.name','messages.*')
             ->get();
-        dd($fullTable);
+        $roomName = DB::table('Rooms')
+            ->select('room_name')
+            ->where('id',$id)->get();
+
 
        return Inertia::render('Message',[
-          'messages' => messages::where('room_id', $id)->get()
+          'messages' => $fullTable,
+           'room' => $id,
+           'room_header'=> $roomName
         ]);
     }
 
@@ -71,8 +92,11 @@ class MessagesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Request $request)
     {
-        //
+
+        $messageID = $request->message_id;
+        messages::where('id',$messageID)->delete();
+        return redirect()->back();
     }
 }
