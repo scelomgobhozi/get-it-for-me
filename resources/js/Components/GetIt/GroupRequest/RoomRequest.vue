@@ -12,9 +12,9 @@
             </div>
 
           <div v-if="room_request">
-              <div v-for="roomRequest in room_request" :key="roomRequest.id">
+              <div >
 
-                   <div class="request-area-container   pl-2 pr-2 h-[32rem] pt-1 pb-1 overflow-y-auto">
+                   <div v-for="roomRequest in room_request" :key="roomRequest.id" class="request-area-container   pl-2 pr-2 h-max pt-1 pb-1 overflow-y-auto">
                      <div class="request-area bg-gray-400 mt-6 p-3 rounded-lg">
                       <p> Group: {{roomRequest.room_name}}</p>
                       <p>Name: {{roomRequest.name}}</p>

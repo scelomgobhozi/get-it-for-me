@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\requests;
 use App\Models\Rooms;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class JoinRoomController extends Controller
@@ -32,14 +33,17 @@ class JoinRoomController extends Controller
     {
 
      $roomID= $request->room_id;
-     $uid = $request->user_id;
+     $userN= $request->user_id;
      $groupAdmin = $request->admin_id;
 
-     $doesUserExist = requests::where('from_id',$uid AND'room_id', $roomID)->get();
-     //dd($doesUserExist);
+
+   $uid = Auth()->id();
+     $doesUserExist = requests::where('from_id',$uid)
+                               ->where('room_id', $roomID)->get();
+
      echo $doesUserExist;
 //     dd(count($doesUserExist));
-     if(count($doesUserExist) == 0){
+     if(count($doesUserExist)==0){
          requests::create([
              'room_id'=>$roomID,
              'from_id' => $uid,

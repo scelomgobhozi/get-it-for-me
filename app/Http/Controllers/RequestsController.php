@@ -24,6 +24,7 @@ class RequestsController extends Controller
                      ->join('rooms','requests.room_id','=','rooms.id')
                      ->join('users','requests.from_id','=','users.id')
                      ->select('requests.*','rooms.room_name','users.name','users.email','users.phone')
+                     ->where('requests.admin_id',$uid)
                     ->get();
  //       dd($roomRequest);
         return Inertia::render('GroupRequest',[
@@ -56,20 +57,24 @@ class RequestsController extends Controller
         // add the requestee as admin of the group
 
 
-       $RAexist = rooms::where('Admin_id',$admin AND 'id',$room_id)->get();
+       $RAexist = rooms::where('Admin_id',$admin)
+                          ->where('id',$room_id)->get();
 
        $isParticipant = participants::where('room_id',$room_id)
            ->where('user_id', $requester)
            ->get();
 
-       //dd($RAexist , $isParticipant);
-       if ($RAexist && count($isParticipant) == 0 ){
+  //     dd(count($RAexist) , count($isParticipant));
+       if ($RAexist && count($isParticipant) === 0 ){
+
+
            participants::create([
              'room_id'=>$room_id,
                'user_id'=>$requester,
                'admin'=>0
            ]);
-           requests::where('room_id', $room_id AND 'from_id',$requester)->delete();
+           requests::where('room_id', $room_id )
+                      ->where('from_id',$requester)->delete();
            return redirect()->back();
 
        }else{

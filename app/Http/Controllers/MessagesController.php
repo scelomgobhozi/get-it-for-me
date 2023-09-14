@@ -61,7 +61,7 @@ class MessagesController extends Controller
             ->join('users','messages.from_id','=','users.id')
             ->select('users.name','messages.*')
             ->get();
-        $roomName = DB::table('Rooms')
+        $roomName = DB::table('rooms')
             ->select('room_name')
             ->where('id',$id)->get();
 
