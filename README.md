@@ -92,5 +92,6 @@ Finally, launch Laravel's built-in development server to get "Get That For Me" r
 
 
 php artisan serve
+npm run dev
 
 You can now access the application in your web browser at http://localhost:8000.
