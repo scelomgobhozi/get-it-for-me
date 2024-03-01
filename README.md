@@ -42,6 +42,7 @@ Before beginning the setup process, ensure you have the following installed:
 ## Installation guide
 
 **Step 1**: Clone the Repository
+
 Start by cloning the GitHub repository for "Get That For Me" to your local machine. Open your terminal, navigate to your desired directory, and execute the following command:
 
 git clone https://github.com/<your-username>/get-that-for-me.git
@@ -50,6 +51,7 @@ Important: Make sure to replace <your-username> with your GitHub username.
 
 
 **Step 2**: Install Dependencies
+
 After cloning, move into the "Get That For Me" project directory:
 
 cd get-that-for-me
@@ -59,6 +61,7 @@ Now, install all required PHP package dependencies listed in the composer.json f
 composer install
 
 **Step 3**: Environment Setup
+
 You'll need to create an .env file from the example provided. This file contains environment-specific variables critical for the app's configuration:
 
 cp .env.example .env
@@ -75,6 +78,7 @@ Open the .env file in your favorite text editor and update it to match your loca
 **Refer to the Laravel documentation for additional environment configuration options.**
 
 **Step 4**: Application Key
+
 Generate a new application key. This key encrypts your session data and other sensitive data within Laravel:
 
 php artisan key:generate
@@ -83,6 +87,7 @@ Step 5: Create the Database (Optional)
 If you haven't already, create a database for "Get That For Me" using your database management system.
 
 **Step 6**: Database Migrations (Optional)
+
 Apply the database migrations to set up your application's tables:
 
 php artisan migrate
@@ -92,6 +97,7 @@ Finally, launch Laravel's built-in development server to get "Get That For Me" r
 
 
 php artisan serve
+
 npm run dev
 
 You can now access the application in your web browser at http://localhost:8000.
